@@ -5,8 +5,10 @@ set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin )
 set( CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib )
 set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib )
 
-set (LLVM_DIR /home/chyyuu/tools/llvm-3.3)
-set (CLANG_DIR /home/chyyuu/tools/llvm-3.3)
+#set (LLVM_DIR /home/chyyuu/llvm-related/build/Release+Asserts)
+#set (CLANG_DIR /home/chyyuu/llvm-related/build/tools/clang)
+set (LLVM_DIR /home/chyyuu/llvm-related/install)
+set (CLANG_DIR /home/chyyuu/llvm-related/install)
 
 add_definitions (-D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS)
 add_definitions (-D_GNU_SOURCE -DHAVE_CLANG_CONFIG_H)
@@ -25,7 +27,7 @@ macro(add_clang_plugin name)
 	set (srcs ${ARGN})
 
 	include_directories( "${LLVM_DIR}/include"
-		"${CLANG_DIR}/include" )
+		"${LLVM_DIR}/include/clang" )
 	link_directories( "${LLVM_DIR}/lib" )
 
 	add_library( ${name} SHARED ${srcs} )

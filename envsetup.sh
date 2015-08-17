@@ -1,4 +1,4 @@
-export LINUX_DIR=/home/chyz/research/linux/linux-stable
+export LINUX_DIR=/home/chyyuu/kernel/linux
 export REMOVE_INLINE_DEFINITIONS=
 
 export ARCH=x86
